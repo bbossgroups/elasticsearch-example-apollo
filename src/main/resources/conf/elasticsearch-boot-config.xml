@@ -1,0 +1,7 @@
+<properties>
+    <!--
+       指定apollo属性配置namespace
+    -->
+
+    <config apolloNamespace="application"/>
+ </properties>

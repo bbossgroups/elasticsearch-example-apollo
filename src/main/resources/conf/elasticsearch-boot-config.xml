@@ -5,5 +5,5 @@
     -->
 
     <config apolloNamespace="application"
-            configChangeListener="org.bboss.elasticsearchtest.apollo.NodeChangeListener"/>
+            configChangeListener="org.frameworkset.apollo.ESNodeChangeListener"/>
  </properties>

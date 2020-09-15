@@ -3671,3 +3671,165 @@ Caused by: java.net.ConnectException: Connection refused: connect
 [2020-08-01 14:42:12][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in conf/elasticsearch-boot-config.xml.
 [2020-08-01 14:42:12][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
 [2020-08-01 14:42:12][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2020-08-10 09:25:33][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=100,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false,http.hosts=null,http.health=null,http.healthCheckInterval=3000,http.discoverServiceInterval=10000,http.handleNullOrEmptyHostsByDiscovery=false
+[2020-08-10 09:25:36][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] HttpProxy server Http pool[default] healthCheck is disabled,you can set HttpProxy http.healthCheckInterval (>0) and http.health in configfile to enabled healthCheck.
+[2020-08-10 09:25:36][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] Discover Http pool[default] is disabled,to enabled set http.discoverService in configfile.
+[2020-08-10 09:25:36][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[__healthCheck_default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=500,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.useHttps":"false","elasticsearch.ttl":"2d","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.client":"restful","elasticsearch.includeTypeName":"false","elasticsearch.sliceScrollThreadCount":"50","elasticsearch.scrollThreadQueue":"200","elasticsearch.httpPool":"default","elasticsearch.healthCheckInterval":"3000","elasticsearch.dateFormat":"yyyy.MM.dd","elasticUser":"elastic","elasticsearch.scrollBlockedWaitTimeout":"0","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.showTemplate":"false","elasticsearch.rest.hostNames":"10.13.11.5:9201","elasticsearch.discoverHost":"false","elasticsearch.scrollThreadCount":"50","elasticPassword":"changeme","elasticsearch.sliceScrollBlockedWaitTimeout":"0"}
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"10000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.13.11.5:9201
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "USER-20151028YA",
+  "cluster_name" : "my-application780",
+  "cluster_uuid" : "HJmsDR9rQ0SYCgbhLlT6YA",
+  "version" : {
+    "number" : "7.8.0",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "757314695644ea9a1dc2fecd26d1a43856725e65",
+    "build_date" : "2020-06-14T19:35:50.234439Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.5.1",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in conf/elasticsearch-boot-config.xml.
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2020-08-10 09:25:36][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2020-08-10 09:26:03][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=100,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false,http.hosts=null,http.health=null,http.healthCheckInterval=3000,http.discoverServiceInterval=10000,http.handleNullOrEmptyHostsByDiscovery=false
+[2020-08-10 09:26:05][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] HttpProxy server Http pool[default] healthCheck is disabled,you can set HttpProxy http.healthCheckInterval (>0) and http.health in configfile to enabled healthCheck.
+[2020-08-10 09:26:05][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] Discover Http pool[default] is disabled,to enabled set http.discoverService in configfile.
+[2020-08-10 09:26:05][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[__healthCheck_default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=500,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false
+[2020-08-10 09:26:05][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.useHttps":"false","elasticsearch.ttl":"2d","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.client":"restful","elasticsearch.includeTypeName":"false","elasticsearch.sliceScrollThreadCount":"50","elasticsearch.scrollThreadQueue":"200","elasticsearch.httpPool":"default","elasticsearch.healthCheckInterval":"3000","elasticsearch.dateFormat":"yyyy.MM.dd","elasticUser":"elastic","elasticsearch.scrollBlockedWaitTimeout":"0","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.showTemplate":"false","elasticsearch.rest.hostNames":"10.13.11.5:9201","elasticsearch.discoverHost":"false","elasticsearch.scrollThreadCount":"50","elasticPassword":"changeme","elasticsearch.sliceScrollBlockedWaitTimeout":"0"}
+[2020-08-10 09:26:05][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2020-08-10 09:26:05][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2020-08-10 09:26:05][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"10000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2020-08-10 09:26:05][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.13.11.5:9201
+[2020-08-10 09:26:05][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2020-08-10 09:26:06][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "USER-20151028YA",
+  "cluster_name" : "my-application780",
+  "cluster_uuid" : "HJmsDR9rQ0SYCgbhLlT6YA",
+  "version" : {
+    "number" : "7.8.0",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "757314695644ea9a1dc2fecd26d1a43856725e65",
+    "build_date" : "2020-06-14T19:35:50.234439Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.5.1",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2020-08-10 09:26:06][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in conf/elasticsearch-boot-config.xml.
+[2020-08-10 09:26:06][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2020-08-10 09:26:06][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch client stopping
+[2020-08-10 09:58:48][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=100,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false,http.hosts=null,http.health=null,http.healthCheckInterval=3000,http.discoverServiceInterval=10000,http.handleNullOrEmptyHostsByDiscovery=false
+[2020-08-10 09:58:50][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] HttpProxy server Http pool[default] healthCheck is disabled,you can set HttpProxy http.healthCheckInterval (>0) and http.health in configfile to enabled healthCheck.
+[2020-08-10 09:58:50][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] Discover Http pool[default] is disabled,to enabled set http.discoverService in configfile.
+[2020-08-10 09:58:50][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[__healthCheck_default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=500,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.useHttps":"false","elasticsearch.ttl":"2d","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.client":"restful","elasticsearch.includeTypeName":"false","elasticsearch.sliceScrollThreadCount":"50","elasticsearch.scrollThreadQueue":"200","elasticsearch.httpPool":"default","elasticsearch.healthCheckInterval":"3000","elasticsearch.dateFormat":"yyyy.MM.dd","elasticUser":"elastic","elasticsearch.scrollBlockedWaitTimeout":"0","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.showTemplate":"false","elasticsearch.rest.hostNames":"10.13.11.5:9201","elasticsearch.discoverHost":"false","elasticsearch.scrollThreadCount":"50","elasticPassword":"changeme","elasticsearch.sliceScrollBlockedWaitTimeout":"0"}
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"10000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:10.13.11.5:9201
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2020-08-10 09:58:50][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "USER-20151028YA",
+  "cluster_name" : "my-application780",
+  "cluster_uuid" : "HJmsDR9rQ0SYCgbhLlT6YA",
+  "version" : {
+    "number" : "7.8.0",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "757314695644ea9a1dc2fecd26d1a43856725e65",
+    "build_date" : "2020-06-14T19:35:50.234439Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.5.1",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2020-08-10 09:58:51][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in conf/elasticsearch-boot-config.xml.
+[2020-08-10 09:58:51][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2020-08-10 10:01:07][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=100,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false,http.hosts=null,http.health=null,http.healthCheckInterval=3000,http.discoverServiceInterval=10000,http.handleNullOrEmptyHostsByDiscovery=false
+[2020-08-10 10:01:09][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] HttpProxy server Http pool[default] healthCheck is disabled,you can set HttpProxy http.healthCheckInterval (>0) and http.health in configfile to enabled healthCheck.
+[2020-08-10 10:01:09][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] Discover Http pool[default] is disabled,to enabled set http.discoverService in configfile.
+[2020-08-10 10:01:09][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[__healthCheck_default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=500,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.useHttps":"false","elasticsearch.ttl":"2d","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.client":"restful","elasticsearch.includeTypeName":"false","elasticsearch.sliceScrollThreadCount":"50","elasticsearch.scrollThreadQueue":"200","elasticsearch.httpPool":"default","elasticsearch.healthCheckInterval":"3000","elasticsearch.dateFormat":"yyyy.MM.dd","elasticUser":"elastic","elasticsearch.scrollBlockedWaitTimeout":"0","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.showTemplate":"false","elasticsearch.rest.hostNames":"192.168.137.1:9201","elasticsearch.discoverHost":"false","elasticsearch.scrollThreadCount":"50","elasticPassword":"changeme","elasticsearch.sliceScrollBlockedWaitTimeout":"0"}
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"10000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:192.168.137.1:9201
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "node-2",
+  "cluster_name" : "my-test",
+  "cluster_uuid" : "cDLQFsq9Ri64twr1DL39pQ",
+  "version" : {
+    "number" : "7.4.1",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "fc0eeb6e2c25915d63d871d344e3d0b45ea0ea1e",
+    "build_date" : "2019-10-22T17:16:35.176724Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.2.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in conf/elasticsearch-boot-config.xml.
+[2020-08-10 10:01:10][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2020-08-10 10:04:46][INFO][org.frameworkset.elasticsearch.client.HostDiscoverUtil] Discovery new elasticsearch[default] node [[http://192.168.137.1:9202, http://192.168.137.1:9203]].
+[2020-08-10 10:04:46][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] All Live ElasticSearch Server:http://192.168.137.1:9202,http://192.168.137.1:9203,http://192.168.137.1:9201
+[2020-08-10 10:29:11][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=100,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false,http.hosts=null,http.health=null,http.healthCheckInterval=3000,http.discoverServiceInterval=10000,http.handleNullOrEmptyHostsByDiscovery=false
+[2020-08-10 10:29:14][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] HttpProxy server Http pool[default] healthCheck is disabled,you can set HttpProxy http.healthCheckInterval (>0) and http.health in configfile to enabled healthCheck.
+[2020-08-10 10:29:14][INFO][org.frameworkset.spi.remote.http.proxy.HttpServiceHosts] Discover Http pool[default] is disabled,to enabled set http.discoverService in configfile.
+[2020-08-10 10:29:14][INFO][org.frameworkset.spi.remote.http.ClientConfiguration] Http Pool[__healthCheck_default] config:http.authAccount=elastic,http.authPassword=changeme,http.encodedAuthCharset=US-ASCII,http.timeoutConnection=5000,http.timeoutSocket=50000,http.connectionRequestTimeout=5000,http.retryTime=4,http.automaticRetriesDisabled=false,http.backoffAuth=false,http.retryInterval=-1,http.maxLineLength=-1,http.maxHeaderCount=200,http.maxTotal=500,http.soReuseAddress=false,http.soKeepAlive=false,http.timeToLive=3600000,http.keepAlive=3600000,http.defaultMaxPerRoute=50,http.validateAfterInactivity=2000,http.staleConnectionCheckEnabled=false,http.customHttpRequestRetryHandler=null,http.keystore=,http.keystoreAlias=null,http.keyPassword=,http.truststore=null,http.truststoreAlias=null,http.trustPassword=null,http.pemCert=null,http.pemtrustedCA=null,http.pemKey=null,http.pemkeyPassword=null,http.hostnameVerifier=,http.supportedProtocols=TLSv1.2,TLSv1.1,TLSv1,http.httpClientBuilderCallback=null,http.evictExpiredConnections=false
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start Elasticsearch Datasource[default] from springboot[false]:{"elasticsearch.useHttps":"false","elasticsearch.ttl":"2d","elasticsearch.timeZone":"Asia/Shanghai","elasticsearch.client":"restful","elasticsearch.includeTypeName":"false","elasticsearch.sliceScrollThreadCount":"50","elasticsearch.scrollThreadQueue":"200","elasticsearch.httpPool":"default","elasticsearch.healthCheckInterval":"3000","elasticsearch.dateFormat":"yyyy.MM.dd","elasticUser":"elastic","elasticsearch.scrollBlockedWaitTimeout":"0","elasticsearch.sliceScrollThreadQueue":"100","elasticsearch.showTemplate":"false","elasticsearch.rest.hostNames":"192.168.137.1:9201,192.168.137.1:9202,192.168.137.1:9203","elasticsearch.discoverHost":"false","elasticsearch.scrollThreadCount":"50","elasticPassword":"changeme","elasticsearch.sliceScrollBlockedWaitTimeout":"0"}
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] elasticsearch.TTL:172800000,config value is:2d
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.TimeBasedIndexNameBuilder] dateFormatString = yyyy.MM.dd,timeZoneString=Asia/Shanghai,indexPrefix=null
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.ElasticSearchHelper] Geo ipinfo config {"ip.cachesize":"10000","ip.database":"","ip.serviceUrl":"","ip.asnDatabase":""},from springboot:false
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] Start ElasticSearch rest client:192.168.137.1:9201,192.168.137.1:9202,192.168.137.1:9203
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Start Elasticsearch healthCheck thread,you can set elasticsearch.healthCheckInterval=-1 in conf/elasticsearch-boot-config.xml to disable healthCheck thread.
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Elasticsearch Server Info:
+{
+  "name" : "node-2",
+  "cluster_name" : "my-test",
+  "cluster_uuid" : "cDLQFsq9Ri64twr1DL39pQ",
+  "version" : {
+    "number" : "7.4.1",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "fc0eeb6e2c25915d63d871d344e3d0b45ea0ea1e",
+    "build_date" : "2019-10-22T17:16:35.176724Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.2.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] Discover Elasticsearch Host is disabled,to enabled set elasticsearch.discoverHost=true  in conf/elasticsearch-boot-config.xml.
+[2020-08-10 10:29:14][INFO][org.frameworkset.elasticsearch.ElasticSearch] ElasticSearch rest client started.
+[2020-08-10 10:30:15][INFO][org.frameworkset.apollo.ESNodeChangeListener] Changes for namespace application
+[2020-08-10 10:30:15][INFO][org.frameworkset.apollo.ESNodeChangeListener] Found change - key: elasticsearch.rest.hostNames, oldValue: 192.168.137.1:9201,192.168.137.1:9202,192.168.137.1:9203, newValue: 192.168.137.1:9201,192.168.137.1:9202, changeType: MODIFIED
+[2020-08-10 10:30:15][INFO][org.frameworkset.elasticsearch.client.ElasticSearchRestClient] ElasticSearch Node[http://192.168.137.1:9203] is down or removed.

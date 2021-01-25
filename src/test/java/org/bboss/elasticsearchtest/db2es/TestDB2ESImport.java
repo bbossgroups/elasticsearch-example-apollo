@@ -6,13 +6,14 @@ import com.frameworkset.common.poolman.handle.ResultSetHandler;
 import com.frameworkset.common.poolman.util.SQLUtil;
 import org.frameworkset.elasticsearch.ElasticSearchHelper;
 import org.frameworkset.elasticsearch.entity.ESDatas;
+import org.frameworkset.tran.BaseElasticsearchDataTran;
 import org.frameworkset.tran.DataRefactor;
 import org.frameworkset.tran.DataStream;
 import org.frameworkset.tran.context.Context;
+import org.frameworkset.tran.db.DBImportContext;
 import org.frameworkset.tran.db.JDBCResultSet;
-import org.frameworkset.tran.db.input.es.DB2ESDataTran;
 import org.frameworkset.tran.db.input.es.DB2ESImportBuilder;
-import org.frameworkset.tran.db.input.es.DB2ESImportContext;
+import org.frameworkset.tran.db.input.es.DBDataTranPlugin;
 import org.frameworkset.tran.es.ESField;
 import org.junit.Test;
 
@@ -46,9 +47,10 @@ public class TestDB2ESImport {
 		catch (Exception e){
 
 		}
-		final DB2ESImportContext importContext = new DB2ESImportContext();
+		final DBImportContext importContext = new DBImportContext();
 		importContext.setBatchSize(98);
 		importContext.setRefreshOption("refresh=true");
+		DBDataTranPlugin dataTranPlugin = new DBDataTranPlugin(  importContext,  importContext);
 		SQLExecutor.queryByNullRowHandler(new ResultSetHandler() {
 			@Override
 			public void handleResult(ResultSet resultSet, StatementInfo statementInfo) throws Exception {
@@ -58,7 +60,7 @@ public class TestDB2ESImport {
 				jdbcResultSet.setMetaData(statementInfo.getMeta());
 				jdbcResultSet.setDbadapter(statementInfo.getDbadapter());
 				//esjdbcResultSet.setEsIdField("id");
-				DB2ESDataTran db2ESDataTran = new DB2ESDataTran(jdbcResultSet,importContext);
+				BaseElasticsearchDataTran db2ESDataTran = new BaseElasticsearchDataTran(jdbcResultSet,importContext,importContext);
 				db2ESDataTran.tran("dbdemo","dbdemo");
 			}
 		},"select * from td_sm_log");
@@ -107,7 +109,7 @@ public class TestDB2ESImport {
 		importBuilder.setParallel(true);//设置为多线程并行批量导入
 		importBuilder.setQueue(10);//设置批量导入线程池等待队列长度
 		importBuilder.setThreadCount(50);//设置批量导入线程池工作线程数量
-		importBuilder.setContinueOnError(true);//任务出现异常，是否继续执行作业：true（默认值）继续执行 false 中断作业执行 
+		importBuilder.setContinueOnError(true);//任务出现异常，是否继续执行作业：true（默认值）继续执行 false 中断作业执行
 		importBuilder.setAsyn(false);//true 异步方式执行，不等待所有导入作业任务结束，方法快速返回；false（默认值） 同步方式执行，等待所有导入作业任务结束，所有作业结束后方法才返回
 		importBuilder.setEsIdField("log_id");//设置log_id字段的值作为es 文档的_id属性
 		importBuilder.setDebugResponse(false);//设置是否将每次处理的reponse打印到日志文件中，默认false，不打印响应报文将大大提升性能，只有在需要的时候才，log日志级别同时要设置为INFO
@@ -131,7 +133,7 @@ public class TestDB2ESImport {
 		}
 	}
 
-	 
+
 
 	@Test
 	public void testDB2ESClob() throws SQLException {
@@ -142,10 +144,11 @@ public class TestDB2ESImport {
 		catch (Exception e){
 
 		}
-		final DB2ESImportContext importContext = new DB2ESImportContext();
+		final DBImportContext importContext = new DBImportContext();
 		importContext.setBatchSize(1000);
 		importContext.setRefreshOption("refresh=true");
 		importContext.setEsIdField(new ESField(false,"document_id"));
+		DBDataTranPlugin dataTranPlugin = new DBDataTranPlugin(  importContext,  importContext);
 		SQLExecutor.queryByNullRowHandler(new ResultSetHandler() {
 			@Override
 			public void handleResult(ResultSet resultSet, StatementInfo statementInfo) throws Exception {
@@ -176,7 +179,7 @@ public class TestDB2ESImport {
 						context.addIgnoreFieldMapping("subtitle");
 					}
 				});
-				DB2ESDataTran db2ESDataTran = new DB2ESDataTran(jdbcResultSet,importContext);
+				BaseElasticsearchDataTran db2ESDataTran = new BaseElasticsearchDataTran(jdbcResultSet,importContext,importContext);
 				db2ESDataTran.tran("dbclobdemo","dbclobdemo");
 
 
@@ -236,8 +239,8 @@ public class TestDB2ESImport {
 		 * 可以配置mapping，也可以不配置，默认基于java 驼峰规则进行db field-es field的映射和转换
 		 */
 		importBuilder.addFieldMapping("document_id","docId")
-					 .addFieldMapping("docwtime","docwTime")
-					 .addIgnoreFieldMapping("channel_id");//添加忽略字段
+				.addFieldMapping("docwtime","docwTime")
+				.addIgnoreFieldMapping("channel_id");//添加忽略字段
 
 		importBuilder.setDebugResponse(false);//设置是否将每次处理的reponse打印到日志文件中，默认false
 		importBuilder.setDiscardBulkResponse(true);//设置是否需要批量处理的响应报文，不需要设置为false，true为需要，默认false

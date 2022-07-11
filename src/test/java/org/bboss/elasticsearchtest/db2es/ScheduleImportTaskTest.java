@@ -76,8 +76,8 @@ public class ScheduleImportTaskTest {
 		//定时任务配置，
 		importBuilder.setFixedRate(false)//参考jdk timer task文档对fixedRate的说明
 //					 .setScheduleDate(date) //指定任务开始执行时间：日期
-				     .setDeyLay(1000L) // 任务延迟执行deylay毫秒后执行
-					 .setPeriod(10000L); //每隔period毫秒执行，如果不设置，只执行一次
+				.setDeyLay(1000L) // 任务延迟执行deylay毫秒后执行
+				.setPeriod(10000L); //每隔period毫秒执行，如果不设置，只执行一次
 //		importBuilder.setLastValueColumn("log_id");//手动指定数字增量查询字段，默认采用上面设置的sql语句中的增量变量名称作为增量查询字段的名称，指定以后就用指定的字段
 		importBuilder.setFromFirst(true);//任务重启时，重新开始采集数据，适合于每次全量导入数据的情况，如果是全量导入，可以先删除原来的索引数据
 		importBuilder.setLastValueStorePath("testdb");//记录上次采集的增量字段值的文件路径，作为下次增量（或者重启后）采集数据的起点
@@ -104,10 +104,10 @@ public class ScheduleImportTaskTest {
 
 		System.out.println();
 
-		
+
 	}
-	
-	
-	
+
+
+
 
 }

@@ -14,6 +14,7 @@ package org.bboss.elasticsearchtest.crud;/*
  *  limitations under the License.
  */
 
+import com.frameworkset.util.SimpleStringUtil;
 import org.bboss.elasticsearchtest.script.DynamicPriceTemplate;
 import org.bboss.elasticsearchtest.script.Rule;
 import org.frameworkset.elasticsearch.ElasticSearchException;
@@ -23,6 +24,7 @@ import org.frameworkset.elasticsearch.client.ClientOptions;
 import org.frameworkset.elasticsearch.client.ClientUtil;
 import org.frameworkset.elasticsearch.entity.ESDatas;
 import org.frameworkset.elasticsearch.entity.IndexField;
+import org.frameworkset.elasticsearch.entity.MetaMap;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -222,6 +224,7 @@ public class DocumentCRUD7 {
 	public void getIndiceMapping(){
 		ClientInterface clientUtil = ElasticSearchHelper.getRestClientUtil();
 		List<IndexField> ffs = clientUtil.getIndexMappingFields("demo");
+		System.out.println();
 	}
 	public void testCreateIndice(){
 		//创建加载配置文件的客户端工具，单实例多线程安全
@@ -283,6 +286,113 @@ public class DocumentCRUD7 {
 		System.out.println(template);
 
 	}
+
+	/**
+	 * 添加map记录
+	 * @throws ParseException
+	 */
+	public void testAddAndUpdateMapDocument() throws ParseException {
+		//创建创建/修改/获取/删除文档的客户端对象，单实例多线程安全
+		ClientInterface clientUtil = ElasticSearchHelper.getRestClientUtil();
+		//构建一个对象，日期类型，字符串类型属性演示
+		Map demo = new LinkedHashMap();
+		demo.put("demoId","2");//文档id，唯一标识，@PrimaryKey注解标示,如果demoId已经存在做修改操作，否则做添加文档操作
+		demo.put("agentStarttime",new Date());
+		demo.put("applicationName","blackcatdemo2");
+		demo.put("contentbody","this-is content body2");
+		demo.put("agentStarttime",new Date());
+		demo.put("name","|刘德华");
+		demo.put("orderId","NFZF15045871807281445364228");
+		demo.put("contrastStatus",2);
+
+		//向固定index demo添加或者修改文档,如果demoId已经存在做修改操作，否则做添加文档操作，返回处理结果
+		/**
+		 //通过@ESId注解的字段值设置文档id
+		 String response = clientUtil.addDocument("demo"//索引表
+
+		 demo);
+		 */
+		/**
+		 //直接指定文档id
+		 String response = clientUtil.addDocumentWithId("demo",//索引表
+
+		 demo,2l);
+		 */
+		//强制刷新
+		ClientOptions addOptions = new ClientOptions();
+		addOptions.setIdField("orderId");
+		//如果orderId对应的文档已经存在则更新，不存在则插入新增
+		String response = clientUtil.addDocument("demo",//索引表
+				demo,addOptions);
+
+
+	}
+
+	/**
+	 * 批量添加map记录
+	 * @throws ParseException
+	 */
+	public void testAddAndUpdateMapDocuments() throws ParseException {
+		//创建创建/修改/获取/删除文档的客户端对象，单实例多线程安全
+		ClientInterface clientUtil = ElasticSearchHelper.getRestClientUtil();
+		List<Map> datas = new ArrayList<Map>();
+		//构建一个对象，日期类型，字符串类型属性演示
+		Map demo = new LinkedHashMap();
+		demo.put("demoId","2");//文档id，唯一标识，@PrimaryKey注解标示,如果demoId已经存在做修改操作，否则做添加文档操作
+		demo.put("agentStarttime",new Date());
+		demo.put("applicationName","blackcatdemo2");
+		demo.put("contentbody","this-is content body2");
+		demo.put("agentStarttime",new Date());
+		demo.put("name","|刘德华");
+		demo.put("orderId","NFZF15045871807281445364228");
+		demo.put("contrastStatus",2);
+		datas.add(demo);
+
+		demo = new LinkedHashMap();
+		demo.put("demoId","3");//文档id，唯一标识，@PrimaryKey注解标示,如果demoId已经存在做修改操作，否则做添加文档操作
+		demo.put("agentStarttime",new Date());
+		demo.put("applicationName","blackcatdemo3");
+		demo.put("contentbody","this-is content body3");
+		demo.put("agentStarttime",new Date());
+		demo.put("name","张三");
+		demo.put("orderId","NFZF15045871807281445364228");
+		demo.put("contrastStatus",3);
+		datas.add(demo);
+
+
+		demo = new LinkedHashMap();
+		demo.put("demoId","4");//文档id，唯一标识，@PrimaryKey注解标示,如果demoId已经存在做修改操作，否则做添加文档操作
+		demo.put("agentStarttime",new Date());
+		demo.put("applicationName","blackcatdemo4");
+		demo.put("contentbody","this-is content body4");
+		demo.put("agentStarttime",new Date());
+		demo.put("name","李四");
+		demo.put("orderId","NFZF15045871807281445364229");
+		demo.put("contrastStatus",4);
+		datas.add(demo);
+
+		//向固定index demo添加或者修改文档,如果demoId已经存在做修改操作，否则做添加文档操作，返回处理结果
+		/**
+		 //通过@ESId注解的字段值设置文档id
+		 String response = clientUtil.addDocument("demo"//索引表
+
+		 demo);
+		 */
+		/**
+		 //直接指定文档id
+		 String response = clientUtil.addDocumentWithId("demo",//索引表
+
+		 demo,2l);
+		 */
+		//强制刷新
+		ClientOptions addOptions = new ClientOptions();
+		addOptions.setIdField("orderId");
+		//如果orderId对应的文档已经存在则更新，不存在则插入新增
+		String response = clientUtil.addDocuments("demo",//索引表
+				datas,addOptions);
+
+
+	}
 	public void testAddAndUpdateDocument() throws ParseException {
 		//创建创建/修改/获取/删除文档的客户端对象，单实例多线程安全
 		ClientInterface clientUtil = ElasticSearchHelper.getRestClientUtil();
@@ -312,6 +422,20 @@ public class DocumentCRUD7 {
 		//强制刷新
 		ClientOptions addOptions = new ClientOptions();
 
+//		addOptions
+////				.setEsRetryOnConflict(1) // elasticsearch不能同时指定EsRetryOnConflict和version
+//				.setIdField("demoId")
+////				.setVersion(2).setVersionType("internal")  //使用IfPrimaryTerm和IfSeqNo代替version
+////				.setIfPrimaryTerm(1l)
+////				.setIfSeqNo(13l)
+////				.setPipeline("1")
+//				.setTimeout("100s")
+//				.setWaitForActiveShards(1)
+//				.setRefresh("true")
+//				.setRouting(1);
+//		//.setMasterTimeout("10s")
+//		;
+
 		addOptions
 //				.setEsRetryOnConflict(1) // elasticsearch不能同时指定EsRetryOnConflict和version
 				.setIdField("demoId")
@@ -319,17 +443,38 @@ public class DocumentCRUD7 {
 //				.setIfPrimaryTerm(1l)
 //				.setIfSeqNo(13l)
 //				.setPipeline("1")
-				.setTimeout("100s")
-				.setWaitForActiveShards(1)
-				.setRefresh("true")
-				.setRouting(1);
-		//.setMasterTimeout("10s")
-		;
+
+				.setRefresh("true");
 		String response = clientUtil.addDocument("demo",//索引表
 
 				demo,addOptions);
 
+		demo = new Demo();
+		demo.setDemoId(1l);//文档id，唯一标识，@PrimaryKey注解标示,如果demoId已经存在做修改操作，否则做添加文档操作
+		demo.setAgentStarttime(new Date());
+		demo.setApplicationName("blackcatdemo1");
+		demo.setContentbody("this-is content body1");
+		demo.setName("|周华健");
+		demo.setOrderId("NFZF15045871807281445364228");
+		demo.setContrastStatus(2);
 
+		//向固定index demo添加或者修改文档,如果demoId已经存在做修改操作，否则做添加文档操作，返回处理结果
+		/**
+		 //通过@ESId注解的字段值设置文档id
+		 String response = clientUtil.addDocument("demo"//索引表
+
+		 demo);
+		 */
+		/**
+		 //直接指定文档id
+		 String response = clientUtil.addDocumentWithId("demo",//索引表
+
+		 demo,2l);
+		 */
+
+		response = clientUtil.addDocument("demo",//索引表
+
+				demo,addOptions);
 		//向动态index demo-yyyy.MM.dd这种添加或者修改文档,如果demoId已经存在做修改操作，否则做添加文档操作，返回处理结果
 		//elasticsearch.dateFormat=yyyy.MM.dd 按照日期生成动态index名称，例如：
 		// 到月 elasticsearch.dateFormat=yyyy.MM demo-2018.03
@@ -529,7 +674,37 @@ public class DocumentCRUD7 {
 		params.put("applicationName1","blackcatdemo2");
 		params.put("applicationName2","blackcatdemo3");
 	}
+	public void testMetaMap(){
+		//创建批量创建文档的客户端对象，单实例多线程安全
+		ClientInterface clientUtil = ElasticSearchHelper.getRestClientUtil();
+		MetaMap newDemo = clientUtil.getDocument("demo",//索引表
 
+				"1",//文档id
+				MetaMap.class
+		);
+		if(newDemo != null) {
+			System.out.println(SimpleStringUtil.object2json(newDemo));
+			System.out.println("getId:" + newDemo.getId());
+			System.out.println("getIndex:" + newDemo.getIndex());
+			System.out.println("getNode:" + newDemo.getNode());
+			System.out.println("getShard:" + newDemo.getShard());
+			System.out.println("getType:" + newDemo.getType());
+			System.out.println("getExplanation:" + newDemo.getExplanation());
+			System.out.println("getFields:" + newDemo.getFields());
+			System.out.println("getHighlight:" + newDemo.getHighlight());
+			System.out.println("getInnerHits:" + newDemo.getInnerHits());
+			System.out.println("getNested:" + newDemo.getNested());
+			System.out.println("getPrimaryTerm:" + newDemo.getPrimaryTerm());
+			System.out.println("getScore:" + newDemo.getScore());
+			System.out.println("getSeqNo:" + newDemo.getSeqNo());
+			System.out.println("getVersion:" + newDemo.getVersion());
+			System.out.println("getParent:" + newDemo.getParent());
+			System.out.println("getRouting:" + newDemo.getRouting());
+			System.out.println("getSort:" + newDemo.getSort());
+			System.out.println("isFound:" + newDemo.isFound());
+		}
+
+	}
 	/**
 	 * 批量导入20002条数据
 	 */
@@ -543,7 +718,7 @@ public class DocumentCRUD7 {
 			demo = new Demo();//定义第一个对象
 			demo.setDemoId((long)i);
 			demo.setAgentStarttime(new Date());
-			demo.setApplicationName("blackcatdemo"+i);
+			demo.setApplicationName("black+catdemo"+i);
 			demo.setContentbody("this is content body"+i);
 			if(i % 2 == 0) {
 				demo.setName("刘德华喜欢唱歌" + i);
@@ -556,10 +731,14 @@ public class DocumentCRUD7 {
 			demo.setContrastStatus(2);
 			demos.add(demo);//添加第一个对象到list中
 		}
+		ClientOptions clientOptions = new ClientOptions();
+		clientOptions.setRefreshOption("refresh=false");//为了测试效果,能够实时查看数据，启用强制刷新机制，可是修改为"refresh=true"
+		//为了提升性能，并没有把所有响应数据都返回，过滤掉了部分数据，可以自行设置FilterPath进行控制
+		clientOptions.setFilterPath("took,errors,items.*.error");
 		//批量添加或者修改2万个文档，将两个对象添加到索引表demo中，批量添加2万条记录耗时1.8s，
 		String response = clientUtil.addDocuments("demo",//索引表
-
-				demos,"refresh=true");//为了测试效果,启用强制刷新机制，实际线上环境去掉最后一个参数"refresh=true"
+									demos,//批量处理数据集合
+									clientOptions);
 		long end = System.currentTimeMillis();
 		System.out.println("BulkAdd 20002 Documents elapsed:"+(end - start)+"毫秒");
 		start = System.currentTimeMillis();
@@ -762,8 +941,8 @@ public class DocumentCRUD7 {
 		//        endTime
 		Map<String,Object> params = new HashMap<String,Object>();
 		//设置applicationName1和applicationName2两个变量的值
-		params.put("applicationName1","blackcatdemo2");
-		params.put("applicationName2","blackcatdemo3");
+		params.put("applicationName1","black+catdemo2");
+		params.put("applicationName2","black+catdemo3");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		//设置时间范围,时间参数接受long值
 		params.put("startTime",dateFormat.parse("2017-09-02 00:00:00"));

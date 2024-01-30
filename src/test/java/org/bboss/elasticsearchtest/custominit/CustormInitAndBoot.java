@@ -87,7 +87,7 @@ public class CustormInitAndBoot {
 		properties.put("default.elasticUser","elastic");
 		properties.put("default.elasticPassword","changeme");
 		//es服务器地址和端口，多个用逗号分隔
-		properties.put("default.elasticsearch.rest.hostNames","10.13.11.6:9200");
+		properties.put("default.elasticsearch.rest.hostNames","10.103.11.6:9200");
 		//是否在控制台打印dsl语句，log4j组件日志级别为INFO或者DEBUG
 		properties.put("default.elasticsearch.showTemplate","true");
 		//集群节点自动发现

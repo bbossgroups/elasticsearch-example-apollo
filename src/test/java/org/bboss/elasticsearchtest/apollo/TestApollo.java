@@ -31,8 +31,7 @@ public class TestApollo {
 	@Test
 	public void testIndiceGet(){
 		ClientInterface clientInterface = ElasticSearchHelper.getRestClientUtil();
-        com.ctrip.framework.apollo.internals.RemoteConfigRepository s;
-        com.ctrip.framework.apollo.internals.LocalFileConfigRepository ss;
+       
 
 		System.out.println(clientInterface.existIndice("demo"));
 		do {

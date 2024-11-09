@@ -14,7 +14,7 @@
         <dependency>
             <groupId>com.bbossgroups.plugins</groupId>
             <artifactId>bboss-datatran-jdbc</artifactId>
-            <version>7.2.8</version>
+            <version>7.2.9</version>
             <exclusions>
                 <exclusion>
                     <artifactId>bboss-elasticsearch-rest-booter</artifactId>
@@ -46,8 +46,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
             <scope>test</scope>
         </dependency>

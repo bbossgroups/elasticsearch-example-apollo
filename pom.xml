@@ -14,7 +14,7 @@
         <dependency>
             <groupId>com.bbossgroups.plugins</groupId>
             <artifactId>bboss-datatran-jdbc</artifactId>
-            <version>7.5.0</version>
+            <version>7.5.1</version>
             <exclusions>
                 <exclusion>
                     <artifactId>bboss-elasticsearch-rest-booter</artifactId>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>com.bbossgroups.plugins</groupId>
             <artifactId>bboss-plugin-apollo</artifactId>
-            <version>6.5.2</version>
+            <version>6.5.3</version>
         </dependency>
         <!-- <dependency>
              <groupId>org.apache.logging.log4j</groupId>
